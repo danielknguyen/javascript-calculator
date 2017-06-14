@@ -46,24 +46,22 @@
 .fourth-column {
 	background-color:#F89406;
 }
-.clear {
+#ac, #ce {
 	background-color:#D91E18;
 }
-#numInput, #chainOps {
+#numInput, #chainOps, #opsInput {
 	line-height:32px;
 	padding:2px;
 }
-#numInput {
+#numInput,#opsInput {
 	font-size:2.5em;
 }
 #chainOps {
 	font-size:1.5em;
 }
-
-
-@media screen and (max-width:449px) {
+/*@media screen and (max-width:449px) {
 	
 }
 @media (min-width:450px) and (max-width:925px) {
 	
-}
+}*/
