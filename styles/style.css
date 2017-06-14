@@ -1,0 +1,23 @@
+#calc-div {
+	border:1px solid black;
+	width:30%;
+	height:59vh;
+	margin:8% 35%;
+}
+#calc-title {
+	padding:1.5%;
+	font-size:2em;
+}
+#calc-input {
+	border:1px solid black;
+	height:10vh;
+	margin-bottom:15px;
+
+}
+#buttons {
+	border:1px solid black;
+
+}
+.button-row {
+	height:45px;
+}
