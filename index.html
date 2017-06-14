@@ -7,37 +7,38 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="styles/mobile.css">
+	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 </head>
 <body>
 	
-	<div class="container">
+	<div id="calc-container" class="container">
 		<div id="calc-div" class="col-sm-12 col-md-12">
-			<p id="calc-title" class="text-center col-sm-12 col-md-12">Javascript Calculator</p>
+			<p id="calc-title" class="text-center col-sm-12 col-md-12">JavaScript Calculator</p>
 			<div id="calc-input" class="col-sm-12 col-md-12"></div>
 				<!-- buttons row 1 -->
-			<button class="button-row" value="ac">AC</button>
-			<button class="button-row" value="ce">CE</button>
-			<button class="button-row" value="/">%</button>
-			<button class="button-row" value="*">&#247</button>
-			<!-- buttons row 2 -->
-			<button class="button-row" value="7">7</button>
-			<button class="button-row" value="8">8</button>
-			<button class="button-row" value="9">9</button>
-			<button class="button-row" value="X">X</button>
-			<!-- button row 3 -->
-			<button class="button-row" value="4">4</button>
-			<button class="button-row" value="5">5</button>
-			<button class="button-row" value="6">6</button>
-			<button class="button-row" value="-">X</button>
-			<!-- button row 4 -->
-			<button class="button-row" value="1">1</button>
-			<button class="button-row" value="2">2</button>
-			<button class="button-row" value="3">3</button>
-			<button class="button-row" value="+">+</button>	
-			<!-- button row 5 -->
-			<button id="zero-button" class="button-row" value="0">0</button>
-			<button class="button-row" value=".">.</button>
-			<button class="button-row" value="=">=</button>
+				<button class="button-row clear" value="ac">AC</button>
+				<button class="button-row clear" value="ce">CE</button>
+				<button class="button-row" value="/">%</button>
+				<button class="button-row fourth-column" value="*">&#247</button>
+				<!-- buttons row 2 -->
+				<button class="button-row" value="7">7</button>
+				<button class="button-row" value="8">8</button>
+				<button class="button-row" value="9">9</button>
+				<button class="button-row fourth-column" value="X">X</button>
+				<!-- button row 3 -->
+				<button class="button-row" value="4">4</button>
+				<button class="button-row" value="5">5</button>
+				<button class="button-row" value"6">6</button>
+				<button class="button-row fourth-column" value="-">-</button>
+				<!-- button row 4 -->
+				<button class="button-row" value="1">1</button>
+				<button class="button-row" value="2">2</button>
+				<button class="button-row" value="3">3</button>
+				<button class="button-row fourth-column" value="+">+</button>	
+				<!-- button row 5 -->
+				<button id="zero-button" class="button-row" value="0">0</button>
+				<button class="button-row" value=".">.</button>
+				<button class="button-row fourth-column" value="=">=</button>
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
