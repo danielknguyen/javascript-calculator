@@ -1,9 +1,9 @@
 #calc-div {
 	border:1px solid black;
-	width:30%;
-	height:59vh;
-	margin:8% 35%;
-}
+	width:290px;
+	height:65vh;
+	margin:10% 37.5%;
+}	
 #calc-title {
 	padding:1.5%;
 	font-size:2em;
@@ -12,12 +12,26 @@
 	border:1px solid black;
 	height:10vh;
 	margin-bottom:15px;
-
-}
-#buttons {
-	border:1px solid black;
-
 }
 .button-row {
 	height:45px;
+	width:50px;
+	margin:2.5px 5px;
+}
+#zero-button {
+	width:114px;
+}
+
+
+
+
+@media screen and (max-width:449px) {
+	#calc-div {
+		margin:10% auto;
+	}
+}
+@media (min-width:450px) and (max-width:925px) {
+	#calc-div {
+		margin:10% 25%;
+	}
 }
