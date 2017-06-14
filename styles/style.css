@@ -1,4 +1,4 @@
-#calc-container, {
+#calc-container {
 	width:100%;
 	height:100%;
 	background-color:#EEEEEE;
@@ -24,10 +24,11 @@
 #calc-input {
 	background-color:#E4F1FE;
 	color:#000000;
-	border-radius:15px;
+	border-radius:8px;
 	height:70px;
 	width:258px;
 	margin-bottom:7px;
+	display:block;
 }
 .button-row {
 	border-radius:15px;
@@ -48,8 +49,16 @@
 .clear {
 	background-color:#D91E18;
 }
-
-
+#numInput, #chainOps {
+	line-height:32px;
+	padding:2px;
+}
+#numInput {
+	font-size:2.5em;
+}
+#chainOps {
+	font-size:1.5em;
+}
 
 
 @media screen and (max-width:449px) {
