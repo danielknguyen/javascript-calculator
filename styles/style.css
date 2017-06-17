@@ -49,16 +49,15 @@
 #ac, #ce {
 	background-color:#D91E18;
 }
-#numInput, #chainOps, #opsInput {
+#initial, #currentChain {
 	line-height:32px;
 	padding:2px;
-}
-#numInput,#opsInput {
 	font-size:2.5em;
 }
-#chainOps {
-	font-size:1.5em;
+#currentChain {
+	font-size:2em;
 }
+
 /*@media screen and (max-width:449px) {
 	
 }

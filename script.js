@@ -6,20 +6,17 @@ $(document).ready(function(){
 	var subtract = document.getElementById("subtract").value;
 	var add = document.getElementById("add").value;
 	var decimal = document.getElementById("decimal").value;
-	//printing element onto calculator
-	function printElement(element){
-		$('#numInput').text(element);
-	}
+
+	var input = 0;
+	var current = 0;
+	var total = 0;
+	
+
 	//when clicking button prints out value
 	$('button').on('click',function(){
 		//assigning button value to input
-		var input = $(this).attr('value');
-		if(input === 'ac'){
-			input = 0;
-		} else if(input === 'ce'){
-			input = 0;
-		}
-		printElement(input);
+		input = $(this).attr('value');
 		console.log(input);
 	});
+
 });
