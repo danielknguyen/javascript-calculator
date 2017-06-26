@@ -1,63 +1,68 @@
 $(document).ready(function(){
-	//grabbing values of the operations
-	var percent = document.getElementById("percent").value;
-	var divide = document.getElementById("divide").value;
-	var multiply = document.getElementById("multiply").value;
-	var subtract = document.getElementById("subtract").value;
-	var add = document.getElementById("add").value;
-	var decimal = document.getElementById("decimal").value;
-
 	//declaring variables that will be used during calculations
-	var input = '';
+	var operands = ['+','-','*','/','%','.'];
+	var regEx = "^[0-9]+$";
+	var initial = '';
+	var log = '';
 	var current = '';
-	var total = '';
+	var ans = 0;
+	var count = 0;
+
 
 	//when clicking button prints out value onto calculator screen
-	$('button').on('click',function(){
+	$('button').on('click',function() {
+		// variable pointing to value of button
 		var buttonValue = $(this).attr('value');
-		//assigning and adding button value to variables
-		input += buttonValue;
-		current += buttonValue;
-		//displaying input number onto calculator screen
-		$('#initial').text(input);
-		$('#currentChain').text(input);
-		//calculator sceen clears both input and current chain if AC is clicked
+		if(buttonValue.match(regEx)) {
+			//log screen if button is a number
+			initial = buttonValue;
+			log += buttonValue;
+			current += buttonValue;
+			$('#initial').text(initial);
+			$('#currentChain').text(log);
+		} else {
+				if(current.indexOf(initial) < 0) {
+					//sum the total of log and assign to current if operator is already in the string; if not add operator to screen
+					initial = buttonValue;
+					log += buttonValue;
+					current += buttonValue;
+				} else if(buttonValue !== '=') {
+						initial = buttonValue;
+						log += buttonValue;
+						current = eval(current) + buttonValue;
+					}
+			}
+		//clear input when ac/ce are clicked on
 		if(buttonValue === 'ac') {
-			input = '';
-			current = '';
+			clear();
 			$('#initial').text(0);
 			$('#currentChain').text(0);
-		}
-		//calcuator screen clears input if ce is clicked
-		// if(buttonValue === 'ce') {
-			 
-		// }
-		
-		//a switch statement if any arithmetic buttons are clicked;specific function will run
-		switch(expression) {
-			case divide:
-				divide();
-				break;
-			case multiply:
-				multiply();
-				break;
-			case subtract:
-				subtract();
-				break;
-			case add:
-				add();
-				break;
-			case equal:
-				equal();
-				break;
-			default:
-				break;
-		}
-		console.log(input);
-		console.log(current);
-		console.log(total);
-	});
-	function divide() {
+		} else if(buttonValue === 'ce'){
 
-	}
+		}
+		//if button '=' is clicked on print the sum/total
+		if(buttonValue === '=') {
+			ans = eval(current);
+			$('#initial').text(ans);
+			$('#currentChain').text(current);
+		}
+		//function to clear calculator memory 
+		function clear() {
+			initial = '';
+			log = '';
+			current = '';
+			ans = 0;
+		}
+		
+	
+
+
+		console.log('initial: ' + initial);
+		console.log('log: ' + log);
+		console.log('current: ' + current);
+		console.log('ans: ' + ans);
+		count++;
+		console.log(count);
+	});
+	
 });
