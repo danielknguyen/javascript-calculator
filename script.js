@@ -7,16 +7,57 @@ $(document).ready(function(){
 	var add = document.getElementById("add").value;
 	var decimal = document.getElementById("decimal").value;
 
-	var input = 0;
-	var current = 0;
-	var total = 0;
-	
+	//declaring variables that will be used during calculations
+	var input = '';
+	var current = '';
+	var total = '';
 
-	//when clicking button prints out value
+	//when clicking button prints out value onto calculator screen
 	$('button').on('click',function(){
-		//assigning button value to input
-		input = $(this).attr('value');
+		var buttonValue = $(this).attr('value');
+		//assigning and adding button value to variables
+		input += buttonValue;
+		current += buttonValue;
+		//displaying input number onto calculator screen
+		$('#initial').text(input);
+		$('#currentChain').text(input);
+		//calculator sceen clears both input and current chain if AC is clicked
+		if(buttonValue === 'ac') {
+			input = '';
+			current = '';
+			$('#initial').text(0);
+			$('#currentChain').text(0);
+		}
+		//calcuator screen clears input if ce is clicked
+		// if(buttonValue === 'ce') {
+			 
+		// }
+		
+		//a switch statement if any arithmetic buttons are clicked;specific function will run
+		switch(expression) {
+			case divide:
+				divide();
+				break;
+			case multiply:
+				multiply();
+				break;
+			case subtract:
+				subtract();
+				break;
+			case add:
+				add();
+				break;
+			case equal:
+				equal();
+				break;
+			default:
+				break;
+		}
 		console.log(input);
+		console.log(current);
+		console.log(total);
 	});
+	function divide() {
 
+	}
 });
