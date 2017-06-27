@@ -19,8 +19,8 @@ $(document).ready(function(){
 			$('#initial').text(initial);
 			$('#currentChain').text(log);
 		} 
-		if(!buttonValue.match(regEx) && current.length !== 0) {
-		//if buttonValue is an operator and if the length of current is not empty run this code block
+		if(!buttonValue.match(regEx) && current.length !== 0 && buttonValue !== '.' && buttonValue !== '%' && buttonValue !== '=' && buttonValue !== 'ce') {
+		//if buttonValue is an operator and if the length of current is not empty run; is not a decimal, %, equal sign and or clear this code block
 			if(current.indexOf(initial) < 0) {
 				//if there is no operator in the string of current add button value to log and current; out the values onto the calc screen
 				initial = '';
@@ -29,19 +29,19 @@ $(document).ready(function(){
 				$('#initial').text(buttonValue);
 				$('#currentChain').text(log);
 		} else if(isNaN(current[current.length-1]) && isNaN(log[log.length-1])) {
-			initial += '';
-			log += '';
-			current += '';
-			$('#initial').text(current[current.length-1]);
-			$('#currentChain').text(log);
-		}else if(buttonValue !== '=') {
-				if(buttonValue !== 'ce') {
-					initial = '';
-					log += buttonValue;
-					current = eval(current) + buttonValue;
-					$('#initial').text(buttonValue);
-					$('#currentChain').text(log);
-				}
+				//if the last element in the string of current and log isn't an operator perform this code block
+				initial += '';
+				log += '';
+				current += '';
+				$('#initial').text(current[current.length-1]);
+				$('#currentChain').text(log);
+		} else {
+				//there is an operator in the string therefore will evaluate the string
+				initial = '';
+				log += buttonValue;
+				current = eval(current) + buttonValue;
+				$('#initial').text(buttonValue);
+				$('#currentChain').text(log);
 			}
 		} 
 		//clear input when ac/ce are clicked on
