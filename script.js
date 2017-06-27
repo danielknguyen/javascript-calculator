@@ -12,6 +12,7 @@ $(document).ready(function(){
 	$('button').on('click',function() {
 		// variable pointing to value of button
 		var buttonValue = $(this).attr('value');
+
 		if(buttonValue.match(regEx)) {
 			//log screen if button is a number
 			initial += buttonValue;
@@ -19,24 +20,28 @@ $(document).ready(function(){
 			current += buttonValue;
 			$('#initial').text(initial);
 			$('#currentChain').text(log);
-		} else if(current.length !== 0) {
-				if(current.indexOf(initial) < 0) {
-					//sum the total of log and assign to current if operator is already in the string; if not add operator to screen
+		} 
+
+		if(!buttonValue.match(regEx) && current.length !== 0) {
+		//if buttonValue is an operator and if the length of current is not empty run this code block
+			if(current.indexOf(initial) < 0) {
+				//if there is no operator in the string of current add button value to log and current; out the values onto the calc screen
+				initial = '';
+				log += buttonValue;
+				current += buttonValue;
+				$('#initial').text(buttonValue);
+				$('#currentChain').text(log);
+		} else if(buttonValue !== '=') {
+				if(buttonValue !== 'ce') {
 					initial = '';
 					log += buttonValue;
-					current += buttonValue;
+					current = eval(current) + buttonValue;
 					$('#initial').text(buttonValue);
 					$('#currentChain').text(log);
-				} else if(buttonValue !== '=') {
-						if(buttonValue !== 'ce') {
-							initial = '';
-							log += buttonValue;
-							current = eval(current) + buttonValue;
-							$('#initial').text(buttonValue);
-							$('#currentChain').text(log);
-						}
-					}
+				}
 			}
+		} 
+
 		//clear input when ac/ce are clicked on
 		if(buttonValue === 'ac') {
 			clear();
