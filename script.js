@@ -19,17 +19,21 @@ $(document).ready(function(){
 			current += buttonValue;
 			$('#initial').text(initial);
 			$('#currentChain').text(log);
-		} else {
+		} else if(current.length !== 0) {
 				if(current.indexOf(initial) < 0) {
 					//sum the total of log and assign to current if operator is already in the string; if not add operator to screen
 					initial = '';
 					log += buttonValue;
 					current += buttonValue;
+					$('#initial').text(buttonValue);
+					$('#currentChain').text(log);
 				} else if(buttonValue !== '=') {
 						if(buttonValue !== 'ce') {
 							initial = '';
 							log += buttonValue;
 							current = eval(current) + buttonValue;
+							$('#initial').text(buttonValue);
+							$('#currentChain').text(log);
 						}
 					}
 			}
@@ -44,7 +48,7 @@ $(document).ready(function(){
 			$('#currentChain').text(log);
 		}
 		//if button '=' is clicked on print the sum/total
-		if(buttonValue === '=') {
+		if(buttonValue === '=' && current.length !== 0) {
 			ans = eval(current);
 			$('#initial').text(ans);
 			$('#currentChain').text(current);
