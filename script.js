@@ -66,6 +66,16 @@ $(document).ready(function(){
 			$('#initial').text(0);
 			$('#currentChain').text('Max digits!');
 		}
+		if(buttonValue === '%') {
+			current = current.slice(0, -initial.length);
+			log = log.slice(0, -initial.length);
+			var percent = (initial/100);
+			initial = percent;
+			log += initial;
+			current += initial;
+			$('#initial').text(initial);
+			$('#currentChain').text(log);
+		}
 		//function to clear calculator memory 
 		function clear() {
 			initial = '';
@@ -74,7 +84,7 @@ $(document).ready(function(){
 			ans = 0;
 		}
 		//function to only  clear initial log 
-		function clearPrev(){
+		function clearPrev() {
 			current = current.slice(0, -initial.length);
 			log = log.slice(0, -initial.length);
 			initial = '';
