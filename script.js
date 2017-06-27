@@ -117,7 +117,7 @@ $(document).ready(function(){
 		
 	
 
-
+		//debugging
 		console.log('initial: ' + initial);
 		console.log('log: ' + log);
 		console.log('current: ' + current);

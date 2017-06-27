@@ -1,0 +1,34 @@
+#calc-div {
+	box-shadow: 30px 30px 25px #888888;
+	width:595px;
+	height:1000px;
+	margin:20% auto;
+}	
+#calc-title {
+	font-size:5em;
+	color:#FFFFFF;
+	font-family: 'Acme', sans-serif;
+}
+#calc-input {
+	height:150px;
+	width:560px;
+	margin-bottom:20px;
+}
+.button-row {
+	/*outline-style:none;*/
+	font-size:3em;
+	height:110px;
+	width:126px;
+	margin:5px 5.7px;
+}
+#zero {
+	width:267px;
+}
+#initial, #currentChain {
+	line-height:64px;
+	padding:8px;
+	font-size:5em;
+}
+#currentChain {
+	font-size:3em;
+}
