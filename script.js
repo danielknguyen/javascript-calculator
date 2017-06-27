@@ -15,7 +15,7 @@ $(document).ready(function(){
 		var buttonValue = $(this).attr('value');
 		if(buttonValue.match(regEx)) {
 			//log screen if button is a number
-			initial = buttonValue;
+			initial += buttonValue;
 			log += buttonValue;
 			current += buttonValue;
 			$('#initial').text(initial);
@@ -23,22 +23,26 @@ $(document).ready(function(){
 		} else {
 				if(current.indexOf(initial) < 0) {
 					//sum the total of log and assign to current if operator is already in the string; if not add operator to screen
-					initial = buttonValue;
+					initial = '';
 					log += buttonValue;
 					current += buttonValue;
 				} else if(buttonValue !== '=') {
-						initial = buttonValue;
-						log += buttonValue;
-						current = eval(current) + buttonValue;
+						if(buttonValue !== 'ce') {
+							initial = '';
+							log += buttonValue;
+							current = eval(current) + buttonValue;
+						}
 					}
 			}
 		//clear input when ac/ce are clicked on
 		if(buttonValue === 'ac') {
 			clear();
 			$('#initial').text(0);
-			$('#currentChain').text(0);
+			$('#currentChain').text('');
 		} else if(buttonValue === 'ce'){
-
+			clearPrev();
+			$('#initial').text(0);
+			$('#currentChain').text(log);
 		}
 		//if button '=' is clicked on print the sum/total
 		if(buttonValue === '=') {
@@ -52,6 +56,11 @@ $(document).ready(function(){
 			log = '';
 			current = '';
 			ans = 0;
+		}
+		function clearPrev(){
+			current = current.slice(0, -initial.length);
+			log = log.slice(0, -initial.length);
+			initial = '';
 		}
 		
 	
