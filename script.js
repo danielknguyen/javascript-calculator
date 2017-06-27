@@ -8,7 +8,6 @@ $(document).ready(function(){
 	var ans = 0;
 	var count = 0;
 
-
 	//when clicking button prints out value onto calculator screen
 	$('button').on('click',function() {
 		// variable pointing to value of button
@@ -50,6 +49,12 @@ $(document).ready(function(){
 			$('#initial').text(ans);
 			$('#currentChain').text(current);
 		}
+		//if output reaches max length
+		if(initial.length > 12 || log.length > 14) {
+			clear();
+			$('#initial').text(0);
+			$('#currentChain').text('Max digits!');
+		}
 		//function to clear calculator memory 
 		function clear() {
 			initial = '';
@@ -57,6 +62,7 @@ $(document).ready(function(){
 			current = '';
 			ans = 0;
 		}
+		//function to only  clear initial log 
 		function clearPrev(){
 			current = current.slice(0, -initial.length);
 			log = log.slice(0, -initial.length);
