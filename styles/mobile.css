@@ -1,34 +1,34 @@
 #calc-div {
 	box-shadow: 30px 30px 25px #888888;
-	width:595px;
-	height:1000px;
+	width:825px;
+	height:1350px;
 	margin:20% auto;
 }	
 #calc-title {
-	font-size:5em;
+	font-size:7em;
 	color:#FFFFFF;
 	font-family: 'Acme', sans-serif;
 }
 #calc-input {
-	height:150px;
-	width:560px;
-	margin-bottom:20px;
+	height:200px;
+	width:790px;
+	margin-bottom:35px;
 }
 .button-row {
 	/*outline-style:none;*/
-	font-size:3em;
-	height:110px;
-	width:126px;
-	margin:5px 5.7px;
+	font-size:5em;
+	height:150px;
+	width:185px;
+	margin:5px 5px;
 }
 #zero {
-	width:267px;
+	width:385px;
 }
 #initial, #currentChain {
-	line-height:64px;
+	line-height:95px;
 	padding:8px;
-	font-size:5em;
+	font-size:7em;
 }
 #currentChain {
-	font-size:3em;
+	font-size:4.5em;
 }
