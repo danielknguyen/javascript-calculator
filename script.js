@@ -7,12 +7,10 @@ $(document).ready(function(){
 	var current = '';
 	var ans = 0;
 	var count = 0;
-
 	//when clicking button prints out value onto calculator screen
 	$('button').on('click',function() {
 		// variable pointing to value of button
 		var buttonValue = $(this).attr('value');
-
 		if(buttonValue.match(regEx)) {
 			//log screen if button is a number
 			initial += buttonValue;
@@ -21,7 +19,6 @@ $(document).ready(function(){
 			$('#initial').text(initial);
 			$('#currentChain').text(log);
 		} 
-
 		if(!buttonValue.match(regEx) && current.length !== 0) {
 		//if buttonValue is an operator and if the length of current is not empty run this code block
 			if(current.indexOf(initial) < 0) {
@@ -31,7 +28,13 @@ $(document).ready(function(){
 				current += buttonValue;
 				$('#initial').text(buttonValue);
 				$('#currentChain').text(log);
-		} else if(buttonValue !== '=') {
+		} else if(isNaN(current[current.length-1]) && isNaN(log[log.length-1])) {
+			initial += '';
+			log += '';
+			current += '';
+			$('#initial').text(current[current.length-1]);
+			$('#currentChain').text(log);
+		}else if(buttonValue !== '=') {
 				if(buttonValue !== 'ce') {
 					initial = '';
 					log += buttonValue;
@@ -41,7 +44,6 @@ $(document).ready(function(){
 				}
 			}
 		} 
-
 		//clear input when ac/ce are clicked on
 		if(buttonValue === 'ac') {
 			clear();
@@ -53,7 +55,7 @@ $(document).ready(function(){
 			$('#currentChain').text(log);
 		}
 		//if button '=' is clicked on print the sum/total
-		if(buttonValue === '=' && current.length !== 0) {
+		if(buttonValue === '=' && current.length !== 0 && !isNaN(current[current.length-1])) {
 			ans = eval(current);
 			$('#initial').text(ans);
 			$('#currentChain').text(current);
@@ -88,5 +90,4 @@ $(document).ready(function(){
 		count++;
 		console.log(count);
 	});
-	
 });
