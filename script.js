@@ -6,6 +6,7 @@ $(document).ready(function(){
 	var log = '';
 	var current = '';
 	var ans = 0;
+	var decimal = true;
 	var count = 0;
 	//when clicking button prints out value onto calculator screen
 	$('button').on('click',function() {
@@ -40,7 +41,7 @@ $(document).ready(function(){
 				initial = '';
 				log += buttonValue;
 				current = eval(current) + buttonValue;
-				$('#initial').text(buttonValue);
+				$('#initial').text(current);
 				$('#currentChain').text(log);
 			}
 		} 
@@ -78,16 +79,26 @@ $(document).ready(function(){
 			$('#currentChain').text(log);
 		}
 		if(buttonValue === '.' || buttonValue == !isNaN(buttonValue) + '.') {
-			if(!isNaN(initial[initial.length-1])) {
-				initial += buttonValue;
-				log += buttonValue;
-				current += buttonValue;
-				$('#initial').text(initial);
-				$('#currentChain').text(log);
+			if(initial.indexOf('.') < 0) {
+				if(!isNaN(initial[initial.length-1])) {
+					initial += buttonValue;
+					log += buttonValue;
+					current += buttonValue;
+					$('#initial').text(initial);
+					$('#currentChain').text(log);
+				} else if (initial === '') {
+					initial += '0' + buttonValue;
+					log += initial;
+					current += initial;
+					$('#initial').text(initial);
+					$('#currentChain').text(log);
+				} else {
+					current = eval(current) + buttonValue;
+					$('#initial').text(buttonValue);
+					$('#currentChain').text(log);	
+				}
 			} else {
-				current = eval(current) + buttonValue;
-				$('#initial').text(buttonValue);
-				$('#currentChain').text(log);
+				return false;
 			}
 		}
 		//function to clear calculator memory 
