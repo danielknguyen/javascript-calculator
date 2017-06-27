@@ -66,7 +66,8 @@ $(document).ready(function(){
 			$('#initial').text(0);
 			$('#currentChain').text('Max digits!');
 		}
-		if(buttonValue === '%') {
+		//if % button is clicked change initial number to decimal && only allow code to run if the initial is a number and not any operators
+		if(buttonValue === '%' && !isNaN(initial[initial.length-1])) {
 			current = current.slice(0, -initial.length);
 			log = log.slice(0, -initial.length);
 			var percent = (initial/100);
@@ -75,6 +76,19 @@ $(document).ready(function(){
 			current += initial;
 			$('#initial').text(initial);
 			$('#currentChain').text(log);
+		}
+		if(buttonValue === '.' || buttonValue == !isNaN(buttonValue) + '.') {
+			if(!isNaN(initial[initial.length-1])) {
+				initial += buttonValue;
+				log += buttonValue;
+				current += buttonValue;
+				$('#initial').text(initial);
+				$('#currentChain').text(log);
+			} else {
+				current = eval(current) + buttonValue;
+				$('#initial').text(buttonValue);
+				$('#currentChain').text(log);
+			}
 		}
 		//function to clear calculator memory 
 		function clear() {
