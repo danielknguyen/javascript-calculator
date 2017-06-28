@@ -57,7 +57,7 @@ $(document).ready(function(){
 		}
 		//if button '=' is clicked on print the sum/total
 		if(buttonValue === '=' && current.length !== 0 && !isNaN(current[current.length-1])) {
-			ans = eval(current);
+			ans = eval(current).toFixed(2);
 			$('#initial').text(ans);
 			$('#currentChain').text(current);
 		}
