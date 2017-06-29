@@ -41,7 +41,7 @@ $(document).ready(function(){
 				initial = '';
 				log += buttonValue;
 				current = eval(current) + buttonValue;
-				$('#initial').text(current);
+				$('#initial').text(current.toFixed(2));
 				$('#currentChain').text(log);
 			}
 		} 
