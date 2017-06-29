@@ -37,12 +37,20 @@ $(document).ready(function(){
 				$('#initial').text(current[current.length-1]);
 				$('#currentChain').text(log);
 		} else {
-				//there is an operator in the string therefore will evaluate the string
-				initial = '';
-				log += buttonValue;
-				current = eval(current) + buttonValue;
-				$('#initial').text(current.toFixed(2));
-				$('#currentChain').text(log);
+				if(current.indexOf('.') < 0) {
+					//there is an operator in the string therefore will evaluate the string
+					initial = '';
+					log += buttonValue;
+					current = eval(current) + buttonValue;
+					$('#initial').text(current);
+					$('#currentChain').text(log);
+				} else {
+					initial = '';
+					log += buttonValue;
+					current = eval(current).toFixed(2) + buttonValue;
+					$('#initial').text(current);
+					$('#currentChain').text(log);
+				}
 			}
 		} 
 		//clear input when ac/ce are clicked on
@@ -57,9 +65,15 @@ $(document).ready(function(){
 		}
 		//if button '=' is clicked on print the sum/total
 		if(buttonValue === '=' && current.length !== 0 && !isNaN(current[current.length-1])) {
-			ans = eval(current).toFixed(2);
-			$('#initial').text(ans);
-			$('#currentChain').text(current);
+			if(current.indexOf('.') < 0) {
+				ans = eval(current);
+				$('#initial').text(ans);
+				$('#currentChain').text(current);
+			} else {
+				ans = eval(current).toFixed(2);
+				$('#initial').text(ans);
+				$('#currentChain').text(current);
+			}
 		}
 		//if output reaches max length
 		if(initial.length > 12 || log.length > 14) {
